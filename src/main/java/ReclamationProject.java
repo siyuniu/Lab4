@@ -8,19 +8,46 @@
  * 5. Remove unnecessary comments as appropriate
  */
 
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
-        /*
-         * For loop with i
+/**
+     * @author ReclamationProject
+
+     */
+
+public class ReclamationProject {
+    /**
+         * @param a is a String
+         * @param b is a String
+         * @return a stubstirng
+
          */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
-        } return r; }
+    static String doit(final String a, final String b) {
+
+        String r =  "";
+        if (a.length() > b.length()) {
+            for (int i = 0; i < a.length(); i++) {
+                for (int j = a.length() - i; j > 0; j--) {
+                    for (int k = 0; k < b.length() - j; k++) {
+                        if (a.regionMatches(i, b, k, j) && j > r.length()) {
+                            r =  a.substring(i, i + j);
+                        }
+                    }
+
+                    }
+            }
+            } else {
+                for (int i = 0; i < b.length(); i++) {
+
+                for (int j = b.length() - i; j > 0; j--) {
+                    for (int k = 0; k < a.length() - j; k++) {
+                        if (a.regionMatches(i, b, k, j) && j > r.length()) {
+                            r =  a.substring(i, i + j);
+                        }
+                            }
+                    }
+            }
+            }
+    return r;
+    }
+
 }
+
